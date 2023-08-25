@@ -1,63 +1,83 @@
-var Files= [];
-var FileReaders= [];
+var files= [];
+var FileReaders = [];
 var ImageLinksArray= [];
 
 const imgdiv = document.getElementById("imagesDiv");
-const selBtn = document.getElementById("addprodbtn");
-const addBtn = document.getElementById("selimgsbtn");
+const selBtn = document.getElementById("selimgsbtn");
+const addBtn = document.getElementById("addprodbtn");
 const proglab = document.getElementById("loadlab");
 
-const name = document.getElementById("nameimp");
-const category = document.getElementById("catimp");
+const name = document.getElementById("nameinp");
+const category = document.getElementById("catinp");
 const description = document.getElementById("desarea");
 const price = document.getElementById("pricelab");
 const stock = document.getElementById("stocklab");
 
-const p1 = document.getElementById("p1imp");
-const p2 = document.getElementById("p2imp");
-const p3 = document.getElementById("p3imp");
-const p4 = document.getElementById("p4imp");
+const p1 = document.getElementById("p1inp");
+const p2 = document.getElementById("p2inp");
+const p3 = document.getElementById("p3inp");
+const p4 = document.getElementById("p4inp");
 
 function OpenFileDialog(){
-    let imp = document.createElement("input");
-    imp.type="file";
-    imp.multiple="multiple";
+    let inp = document.createElement("input");
+    inp.type="file";
+    inp.multiple="multiple";
 
-    imp.onchange = (e) => {
+    inp.onchange = (e) => {
         AssignImgsToFilesArray(e.target.files);
         CreateImgTags();
     }
+
+    inp.click();
+
 }
 
-function AssignImgsToFilesArray(thefiles){
-    let num = Files.length + thefiles.length;
-    let looplim = (num <=10) ? thefiles.length : (10-Files.length);
+// function AssignImgsToFilesArray(thefiles){
+//     let num = files.length + thefiles.length;
+//     let looplim = (num <=10) ? thefiles.length : (10-Files.length);
 
-    for ( let i = 0; i < looplim; i++){
-        Files.push(thefiles[i]);
-    }
+//     for ( let i = 0; i < looplim; i++){
+//         files.push(thefiles[i]);
+//     }
     
-    if(num>10) alert("maximum 10 images are allowed!");
+//     if(num>10) alert("maximum 10 images are allowed!");
+// }
+function AssignImgsToFilesArray(thefiles) {
+    let num = files.length + thefiles.length;
+    let looplim = (num <= 10) ? thefiles.length : (10 - files.length);
+
+    for (let i = 0; i < looplim; i++) {
+        files.push(thefiles[i]);
+    }
+
+    if (num > 10) alert("maximum 10 images are allowed!");
 }
+
+
 
 function CreateImgTags(){
-    imgdiv.innerHTML="";
+    imgdiv.innerHTML=" ";
+    imgdiv.classList.add("imagesDivStyle");
 
-    for(let i = 0; i < Files.length; i++) {
-        FileReaders[i]= new FileReaders();
+    for(let i = 0; i <files.length; i++) {
+        FileReaders[i]= new FileReader();
 
         FileReaders[i].onload = function(){
             var img = document.createElement("img");
             img.id= "imgNo" + i;
             img.classList.add("imgs");
             img.src= FileReaders[i].result;
-            imgdiv.oppend(img);
+            imgdiv.append(img);
         }
 
-        FileReaders[i].readAsDataURL(Files[i]);
+        FileReaders[i].readAsDataURL(files[i]);
     }
 }
 //......event.....//
+
+   selBtn.addEventListener("click", OpenFileDialog);
+
+
 
 
 
