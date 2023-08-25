@@ -5,11 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin panel</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="script.js"></script>
 </head>
 <body>
     <label>Product Name</label><input type="text" id="nameimp"><br><br>
-    <label>Product Price</label><input type="text" id="nameimp"><br><br>
-    <label>Stock (Quantity)</label><input type="text" id="nameimp"><br><br>
+    <label>Product Price</label><input type="text" id="pricelab"><br><br>
+    <label>Stock (Quantity)</label><input type="text" id="stocklab"><br><br>
     <label>Category</label>
     <select id="catimp">
         <option value="Keyboard & Mouse">Keyboard & Mouse</option>
@@ -18,17 +20,17 @@
         <option value="Graphics Card">Graphics Card</option>
         <option value="Power Supply">Power Supply</option>
     </select><br><br>
-    <label>Points #1</label><input type="text" id="nameimp" id="p1imp"><br><br>
-    <label>Points #2</label><input type="text" id="nameimp" id="p2imp"><br><br>
-    <label>Points #3</label><input type="text" id="nameimp" id="p3imp"><br><br>
-    <label>Points #4</label><input type="text" id="nameimp" id="p4imp"><br><br>
+    <label>Points #1</label><input type="text" id="nameimp" id="p1imp" class="pointers"><br><br>
+    <label>Points #2</label><input type="text" id="nameimp" id="p2imp" class="pointers"><br><br>
+    <label>Points #3</label><input type="text" id="nameimp" id="p3imp" class="pointers"><br><br>
+    <label>Points #4</label><input type="text" id="nameimp" id="p4imp" class="pointers"><br><br>
 
-    <label>Product Description</label><textarea id="desarea"></textarea>
-    
+    <label id="pdlab">Product Description</label><textarea id="desarea"></textarea>
+
     <div id="imagesDiv"></div>
 
     <div id="controldiv">
-        <label id="loadlab"></label>
+        <label></label><label id="loadlab">uploading 1 of 3</label>
         <button id="addprodbtn">Add Product</button>
         <button id="selimgsbtn">Select Images</button>
     </div>

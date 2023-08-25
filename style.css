@@ -1,0 +1,54 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+label{
+    display: inline-block;
+    width: 120px;
+}
+
+input{
+    width: 600px;
+    border: gray 1px solid;
+    resize: none;
+    padding: 8px;
+}
+
+textarea{
+    height: 100px;  /* change */
+}
+
+.pointers{
+    border: 1px darkblue dashed;
+}
+#pdlab{
+    height: 100px;
+    vertical-align: top;
+}
+
+#addprodbtn, #selimgsbtn{
+    float: right;
+    margin-left:10px;
+}
+
+#controldiv{
+    width: 740px;
+}
+
+#loadlab{
+    width: 200px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
